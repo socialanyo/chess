@@ -1,0 +1,6 @@
+{
+  "name": "Chess Online",
+  "description": "A full-featured multiplayer Chess platform with real-time WebSockets, AI bot coaches, puzzles, responsive board for mobile and desktop, and rich match analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,110 @@
+import { Puzzle } from '../types';
+
+export const PUZZLES: Puzzle[] = [
+  {
+    id: 'puz-1',
+    title: 'Back Rank Mate in One',
+    rating: 600,
+    theme: 'Back Rank Mate',
+    fen: '6k1/5ppp/8/8/8/8/8/3R2K1 w - - 0 1',
+    solution: ['d1d8#'],
+    description: 'White has a rook on d1 and Black’s king is trapped on the back rank behind its own pawns. Deliver checkmate in 1 move!',
+    hint: 'Move your rook to the 8th rank to attack the trapped king.',
+  },
+  {
+    id: 'puz-2',
+    title: 'Smothered Mate',
+    rating: 1100,
+    theme: 'Smothered Mate',
+    fen: '6k1/5ppp/8/8/4N3/8/5PPP/6K1 w - - 0 1',
+    solution: ['e4f6+', 'g8h8', 'f6d7'], // simplified or standard smothered sequence
+    description: 'Use the Knight’s unique jumping ability to exploit trapped royal pieces.',
+    hint: 'Give check with the Knight on f6.',
+  },
+  {
+    id: 'puz-3',
+    title: 'Scholar\'s Sting',
+    rating: 700,
+    theme: 'Mate in 1',
+    fen: 'r1bqkb1r/pppp1ppp/2n5/4p3/2B1n3/5Q2/PPPP1PPP/RNB1K1NR w KQkq - 0 4',
+    solution: ['f3f7#'],
+    description: 'Target Black\'s weakest square (f7) which is guarded only by the king.',
+    hint: 'Take the f7 pawn with your Queen delivering checkmate.',
+  },
+  {
+    id: 'puz-4',
+    title: 'Royal Knight Fork',
+    rating: 950,
+    theme: 'Knight Fork',
+    fen: 'r3k2r/ppp2ppp/2n5/3p4/3P4/2N5/PPP2PPP/R3K2R w KQkq - 0 1',
+    solution: ['c3d5', 'e8d7', 'd5c7'],
+    description: 'Win critical center material and fork the enemy king and rook!',
+    hint: 'Capture the undefended d5 pawn with the Knight.',
+  },
+  {
+    id: 'puz-5',
+    title: 'Queen & Bishop Battery Mate',
+    rating: 1050,
+    theme: 'Mate in 1',
+    fen: 'r1b2rk1/pp3ppp/2n5/3p4/8/2B2Q2/PPP2PPP/R3R1K1 w - - 0 1',
+    solution: ['f3g3'],
+    description: 'Create an unstoppable mate threat on g7!',
+    hint: 'Slide Queen to g3 aiming straight at g7 with bishop backup on c3.',
+  },
+  {
+    id: 'puz-6',
+    title: 'Anastasia\'s Mate',
+    rating: 1350,
+    theme: 'Tactical Mate in 2',
+    fen: '5rk1/1p3ppp/pN6/8/8/8/5PPP/4R1K1 w - - 0 1',
+    solution: ['e1e8', 'f8e8', 'b6d7'],
+    description: 'Distract the enemy rook and exploit the cornered king.',
+    hint: 'Sacrifice or trade on the back rank.',
+  },
+  {
+    id: 'puz-7',
+    title: 'Greek Gift Sacrifice Follow-up',
+    rating: 1400,
+    theme: 'Attacking King',
+    fen: 'r1bq1rk1/pp1n1pB1/2p1p3/3p4/3P4/2N5/PPP1PPP1/R2QKB1R w KQ - 0 1',
+    solution: ['d1d2'],
+    description: 'Prepare the unstoppable Queen invasion to h6.',
+    hint: 'Lift your Queen to d2 eyeing the light squares around the black king.',
+  },
+  {
+    id: 'puz-8',
+    title: 'Pin to the Queen',
+    rating: 900,
+    theme: 'Pin',
+    fen: 'r3kb1r/pppq1ppp/2n1b3/3np3/8/2NP1N2/PPP1BPPP/R1BQK2R w KQkq - 0 1',
+    solution: ['c3d5', 'e6d5', 'c2c4'],
+    description: 'Exploit the alignment on the d-file to gain tempo and space.',
+    hint: 'Trade knights on d5 and push c4.',
+  },
+  {
+    id: 'puz-9',
+    title: 'Queen Sacrifice for Back Rank Checkmate',
+    rating: 1500,
+    theme: 'Deflection',
+    fen: '2r3k1/5ppp/8/8/8/4Q3/5PPP/2r1R1K1 w - - 0 1',
+    solution: ['e3c1', 'c8c1', 'e1e8#'],
+    description: 'Sacrifice the Queen on c1 to deflect Black\'s rook from defending the 8th rank!',
+    hint: 'Take the rook on c1 with your Queen.',
+  },
+  {
+    id: 'puz-10',
+    title: 'Endgame Pawn Breakthrough',
+    rating: 1250,
+    theme: 'Pawn Endgame',
+    fen: '8/8/8/p1p5/P1P5/1P6/8/4K2k w - - 0 1',
+    solution: ['b3b4', 'c5b4', 'c4c5'],
+    description: 'Sacrifice a pawn to create an unstoppable outside passed pawn that promotes first!',
+    hint: 'Push b4!',
+  },
+];
+
+export function getDailyPuzzle(): Puzzle {
+  const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 1000 / 60 / 60 / 24);
+  const index = Math.abs(dayOfYear) % PUZZLES.length;
+  return PUZZLES[index];
+}
